@@ -16,18 +16,14 @@ export default function HomeScreen() {
   return (
     <View style={styles.main}>
       <View style={styles.nameContainer}>
-        <View style={styles.singleNameContainer}>
-          <Image
-            source={require('../assets/images/ENname.png')}
-            style={styles.nameImage}
-          />
-        </View>
-        <View style={styles.singleNameContainer}>
-          <Image
-            source={require('../assets/images/CNname.png')}
-            style={styles.nameImage}
-          />
-        </View>
+        <Image
+          source={require('../assets/images/ENname.png')}
+          style={styles.nameImage}
+        />
+        <Image
+          source={require('../assets/images/CNname.png')}
+          style={styles.nameImage}
+        />
       </View>
 
       <View style={styles.departmentContainer}>
@@ -35,12 +31,12 @@ export default function HomeScreen() {
       </View>
 
 
-    </View>
+    </View >
   );
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+  header: null
 };
 
 const styles = StyleSheet.create({
@@ -49,15 +45,11 @@ const styles = StyleSheet.create({
   },
   nameContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
     paddingTop: 20
   },
-  singleNameContainer: {
-    width: '45%'
-  },
   nameImage: {
-    width: '100%',
-    height: 70,
+    flex: 1,
+    height: 40,
     resizeMode: 'contain'
   },
   departmentContainer: {
@@ -67,6 +59,6 @@ const styles = StyleSheet.create({
     borderBottomColor: 'grey'
   },
   departmentText: {
-    fontSize: 18
+    fontSize: 16
   }
 });
