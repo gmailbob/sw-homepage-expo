@@ -1,14 +1,24 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Linking
+} from 'react-native';
+import { Divider } from 'react-native-elements';
+import { EvilIcons } from '@expo/vector-icons';
+import { MonoText } from '../components/StyledText';
 
 export default function SettingsScreen() {
-  /**
-   * Go ahead and delete ExpoConfigView and replace it with your content;
-   * we just wanted to give you a quick view of your config.
-   */
-  return <ExpoConfigView />;
+  return (
+    <ScrollView style={{ padding: 20 }}>
+      <MonoText>Not implement yet</MonoText>
+    </ScrollView>
+  );
+
 }
 
 SettingsScreen.navigationOptions = {
-  title: 'app.json',
+  header: null
 };
