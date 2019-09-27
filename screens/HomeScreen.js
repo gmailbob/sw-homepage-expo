@@ -6,9 +6,11 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Linking
 } from 'react-native';
 import { Divider } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
+import { EvilIcons, Octicons, AntDesign } from '@expo/vector-icons';
 import { MonoText } from '../components/StyledText';
 
 function MyDivider({ padding }) {
@@ -55,7 +57,7 @@ class MyCarousel extends Component {
 
 export default function HomeScreen() {
   return (
-    <View style={styles.main}>
+    <ScrollView style={styles.main}>
       <View style={styles.nameContainer}>
         <Image
           source={require('../assets/images/ENname.png')}
@@ -87,19 +89,41 @@ export default function HomeScreen() {
       <MyDivider />
 
       <View style={{ flexDirection: 'row' }}>
-        <Image
-          source={require('../assets/images/me.png')}
-          style={styles.headImage}
-        />
+        <View style={{ flex: 2 }}>
+          <Image source={require('../assets/images/me.png')} style={{ resizeMode: 'contain', width: '100%' }} />
+          <MyDivider />
+          <View style={{ flex:1, justifyContent: 'space-between', alignItems: 'center' }}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.math.columbia.edu/~tedd2013/files/CV_SWang.pdf')}>
+              <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                <Octicons name="file-symlink-file" color="grey" size={30} />
+                <Text style={{ fontSize: 25, color: 'grey' }} > CV</Text>
+              </View>
+            </TouchableOpacity>
+            <AntDesign name="github" color="grey" size={30} onPress={() => Linking.openURL('https://github.com/Waerden001')} />
+            <AntDesign name="linkedin-square" color="grey" size={30} onPress={() => Linking.openURL('https://github.com/Waerden001')} />
+            <AntDesign name="facebook-square" color="grey" size={30} onPress={() => Linking.openURL('https://www.facebook.com/people/Shuai-Wang/100010022234709')} />
+            <AntDesign name="instagram" color="grey" size={30} onPress={() => Linking.openURL('https://www.instagram.com/shuai_wang000')} />
+          </View>
+
+        </View>
         <View style={{ paddingLeft: 15, flex: 5 }}>
-          <MonoText>I am a fifth-year Ph.D student in the Department of Mathematics at Columbia University in the City of New York, under the supervision of Professor Andrei Okounkov. I got my bachelor's degree in mathematics from Peking University in 2015.</MonoText>
-          <MonoText>I'm maily interested in algebraic geometry and representation theory.</MonoText>
-          <MonoText>Besides mathematics, I love boxing and playing the guitar.</MonoText>
-          <MonoText>Email: "sw3028" at columbia dot edu</MonoText>
+          <MonoText style={{ paddingBottom: 10 }}>
+            I am a fifth-year Ph.D student in the
+            <Text onPress={() => Linking.openURL('https://www.math.columbia.edu')} style={{ color: 'blue' }}> Department of Mathematics<EvilIcons name="external-link" color="blue" /> </Text>
+            at Columbia University in the City of New York, under the supervision of Professor
+            <Text onPress={() => Linking.openURL('http://www.math.columbia.edu/~okounkov')} style={{ color: 'blue' }}> Andrei Okounkov<EvilIcons name="external-link" color="blue" /></Text>
+            . I got my bachelor's degree in mathematics from Peking University in 2015.
+          </MonoText>
+          <MonoText style={{ paddingBottom: 10 }}>I'm maily interested in algebraic geometry and representation theory.</MonoText>
+          <MonoText style={{ paddingBottom: 10 }}>Besides mathematics, I love boxing and playing the guitar.</MonoText>
+          <MonoText>Email: sw3028@columbia.edu</MonoText>
         </View>
       </View>
 
-    </View>
+      <MyDivider />
+
+
+    </ScrollView>
   );
 }
 
@@ -128,6 +152,6 @@ const styles = StyleSheet.create({
   },
   headImage: {
     flex: 2,
-    resizeMode: 'contain'
+
   }
 });
