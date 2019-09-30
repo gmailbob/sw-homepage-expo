@@ -92,13 +92,7 @@ export default function HomeScreen() {
         <View style={{ flex: 2 }}>
           <Image source={require('../assets/images/me.png')} style={{ resizeMode: 'contain', width: '100%' }} />
           <MyDivider />
-          <View style={{ flex:1, justifyContent: 'space-between', alignItems: 'center' }}>
-            <TouchableOpacity onPress={() => Linking.openURL('https://www.math.columbia.edu/~tedd2013/files/CV_SWang.pdf')}>
-              <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                <Octicons name="file-symlink-file" color="grey" size={30} />
-                <Text style={{ fontSize: 25, color: 'grey' }} > CV</Text>
-              </View>
-            </TouchableOpacity>
+          <View style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center' }}>
             <AntDesign name="github" color="grey" size={30} onPress={() => Linking.openURL('https://github.com/Waerden001')} />
             <AntDesign name="linkedin-square" color="grey" size={30} onPress={() => Linking.openURL('https://github.com/Waerden001')} />
             <AntDesign name="facebook-square" color="grey" size={30} onPress={() => Linking.openURL('https://www.facebook.com/people/Shuai-Wang/100010022234709')} />
@@ -116,6 +110,7 @@ export default function HomeScreen() {
           </MonoText>
           <MonoText style={{ paddingBottom: 10 }}>I'm maily interested in algebraic geometry and representation theory.</MonoText>
           <MonoText style={{ paddingBottom: 10 }}>Besides mathematics, I love boxing and playing the guitar.</MonoText>
+          <MonoText style={{ paddingBottom: 10 }}>See full <MonoText style={{ color: 'blue' }} onPress={() => Linking.openURL('https://www.math.columbia.edu/~tedd2013/files/CV_SWang.pdf')}>CV here. <Octicons name="file-symlink-file" size={16} /></MonoText></MonoText>
           <MonoText>Email: sw3028@columbia.edu</MonoText>
         </View>
       </View>
